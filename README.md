@@ -1,3 +1,6 @@
+Browse and download my own Apps from: [https://BoomBoomPillow.github.io/BangleApps/](https://BoomBoomPillow.github.io/BangleApps/)
+
+
 Bangle.js App Loader (and Apps)
 ================================
 
