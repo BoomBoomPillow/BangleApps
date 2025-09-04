@@ -5,6 +5,7 @@
   "version":"0.01",
   "description": "This is a description of my awesome timer app",
   "tags": "",
+  "readme":"README.md",
   "supports": ["BANGLEJS2"],
   "storage": [
     {"name":"timer.app.js","url":"app.js"},
