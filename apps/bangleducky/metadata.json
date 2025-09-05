@@ -1,17 +1,17 @@
 {
-  "id":"bangleducky",
-  "name":"Bangle.js Rubber Ducky",
-  "shortName":"Bangle Ducky",
-  "version":"0.01",
-  "description": "DuckyScript for your Bangle.js — well, almost.
-This app lets you send scripted keyboard input to any connected computer, mimicking the behavior of a USB Rubber Ducky.
-Great for automation, pranks, or proof-of-concept demos.",
-  "icon":"bangeducky.img",
+  "id": "bangleducky",
+  "name": "Bangle.js Rubber Ducky",
+  "shortName": "Bangle Ducky",
+  "version": "0.01",
+  "description": "DuckyScript for your Bangle.js — well, almost.\nThis app lets you send scripted keyboard input to any connected computer, mimicking the behavior of a USB Rubber Ducky.\nGreat for automation, pranks, or proof-of-concept demos.",
+  "icon": "bangeducky.img",
   "tags": "tools,bluetooth",
-  "supports" : ["BANGLEJS2"],
+  "supports": ["BANGLEJS2"],
   "readme": "README.md",
+  "custom": "custom.html",
   "storage": [
-    {"name":"bangleducky.app.js","url":"app.js"},
-    {"name":"bangeducky.img","url":"app-icon.js","evaluate":true},
-    "custom": "custom.html"
-});
+    { "name": "bangleducky.app.js", "url": "app.js" },
+    { "name": "bangeducky.img", "url": "app-icon.js", "evaluate": true }
+  ]
+}
+
