@@ -1,0 +1,88 @@
+<h2>Bangle.js DuckyScript Manager</h2>
+
+<!-- File Upload -->
+<h3>Upload a Script</h3>
+<input type="file" id="file" />
+<button onclick="upload()">Upload</button>
+
+<!-- File List -->
+<h3>Uploaded Scripts</h3>
+<ul id="fileList">Loading...</ul>
+
+<!-- Delete All -->
+<button style="color: red;" onclick="deleteAll()">Delete All Scripts</button>
+
+<script>
+function escapeFilename(name) {
+  return name.replace(/[^a-z0-9._-]/gi, "_");
+}
+
+function upload() {
+  const fileInput = document.getElementById("file");
+  if (!fileInput.files.length) return alert("No file selected!");
+
+  const file = fileInput.files[0];
+  const safeName = escapeFilename(file.name);
+  const filename = "ducky/" + safeName;
+
+  const reader = new FileReader();
+  reader.onload = function () {
+    const contents = reader.result;
+
+    const cmd = `require("Storage").write(${JSON.stringify(filename)}, ${JSON.stringify(contents)});\n`;
+    Puck.write(cmd, () => {
+      alert("Upload complete!");
+      listFiles();
+    });
+  };
+  reader.readAsText(file);
+}
+
+function deleteFile(filename) {
+  const cmd = `require("Storage").erase(${JSON.stringify(filename)});\n`;
+  Puck.write(cmd, () => {
+    alert("Deleted: " + filename);
+    listFiles();
+  });
+}
+
+function deleteAll() {
+  const cmd = `
+    require("Storage").list(/^ducky\\//).forEach(f => require("Storage").erase(f));
+  \n`;
+  Puck.write(cmd, () => {
+    alert("All scripts deleted!");
+    listFiles();
+  });
+}
+
+function listFiles() {
+  const cmd = `
+    Bluetooth.println(JSON.stringify(require("Storage").list(/^ducky\\//)));
+  \n`;
+  Puck.eval(cmd, function (files) {
+    const list = document.getElementById("fileList");
+    list.innerHTML = "";
+
+    if (!files || files.length === 0) {
+      list.innerHTML = "<li>No scripts uploaded.</li>";
+      return;
+    }
+
+    files.forEach(filename => {
+      const li = document.createElement("li");
+      li.textContent = filename + " ";
+      
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "Delete";
+      delBtn.style.marginLeft = "10px";
+      delBtn.onclick = () => deleteFile(filename);
+
+      li.appendChild(delBtn);
+      list.appendChild(li);
+    });
+  });
+}
+
+listFiles(); // Load on startup
+</script>
