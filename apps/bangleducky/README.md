@@ -6,4 +6,4 @@
 
 ## Credits
 
-Original idea and inspiration go to: Dušan Lamoš: https://www.youtube.com/watch?v=vI316QgPXfI
+Original idea and inspiration and logo go to: Dušan Lamoš: https://www.youtube.com/watch?v=vI316QgPXfI
