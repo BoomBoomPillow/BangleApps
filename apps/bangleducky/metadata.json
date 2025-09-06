@@ -1,5 +1,6 @@
 {
   "id": "bangleducky",
+  "src": "bangleducky.app.js"
   "name": "Bangle.js Rubber Ducky",
   "shortName": "Bangle Ducky",
   "version": "0.01",
