@@ -4,7 +4,7 @@
   "shortName": "Bangle Ducky",
   "version": "0.01",
   "description": "DuckyScript for your Bangle.js — well, almost.\nThis app lets you send scripted keyboard input to any connected computer, mimicking the behavior of a USB Rubber Ducky.\nGreat for automation, pranks, or proof-of-concept demos.",
-  "icon": "bangeducky.png",
+  "icon": "app-icon.js",
   "tags": "tools,bluetooth",
   "supports": ["BANGLEJS2"],
   "readme": "README.md",
